@@ -2,7 +2,7 @@
 Learning contiki-os with Ubuntu 18.04 on cc2650 
 
 * [Install Toolchain](#install-toolchain)
-* [Flash program by Ubuntu](#flash-program-by-Ubuntu)
+* [Flash program by Ubuntu](#flash-program-by-ubuntu)
 
 ## Install Toolchain
 * Download and install Ubuntu จาก www.ubuntu.com
