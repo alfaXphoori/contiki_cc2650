@@ -3,7 +3,7 @@ Learning contiki-os with Ubuntu 18.04 on cc2650
 
 * [Install Toolchain](#install-toolchain)
 * [Flash program by Ubuntu](#flash-program-by-ubuntu)
-* [Boarder router](#boarder-router)
+* [Border router](#border-router)
 
 ## Install Toolchain
 * Download and install Ubuntu จาก www.ubuntu.com
@@ -76,7 +76,7 @@ Learning contiki-os with Ubuntu 18.04 on cc2650
   สุดท้ายถ้าทำตามขั้นตอนทั้งหมด และถูกต้องเราก็จะสามารถ flash program ผ่าน ubuntu ได้ดังรูป
   ![tools-13](https://user-images.githubusercontent.com/27261111/45929638-c368a600-bf7e-11e8-88b7-8fb680412d93.png)
   
-  ## Boarder-router
+  ## Border-router
 * เมื่อเราทำการ install Contiki เสร็จแล้ว ทำการเข้าไปที่ Folder contiki/example/ipv6 และทำการ make border-router เมื่อเสร็จจะได้ดังภาพ
     ```
     cd contiki/examples/ipv6
