@@ -3,6 +3,7 @@ Learning contiki-os with Ubuntu 18.04 on cc2650
 
 * [Install Toolchain](#install-toolchain)
 * [Flash program by Ubuntu](#flash-program-by-ubuntu)
+* [Boarder router](#boarder-router)
 
 ## Install Toolchain
 * Download and install Ubuntu จาก www.ubuntu.com
@@ -74,3 +75,34 @@ Learning contiki-os with Ubuntu 18.04 on cc2650
   ![tools-12](https://user-images.githubusercontent.com/27261111/45929628-99af7f00-bf7e-11e8-8cc7-d1d6c536f534.png)
   สุดท้ายถ้าทำตามขั้นตอนทั้งหมด และถูกต้องเราก็จะสามารถ flash program ผ่าน ubuntu ได้ดังรูป
   ![tools-13](https://user-images.githubusercontent.com/27261111/45929638-c368a600-bf7e-11e8-88b7-8fb680412d93.png)
+  
+  ## Boarder-router
+* เมื่อเราทำการ install Contiki เสร็จแล้ว ทำการเข้าไปที่ Folder contiki/example/ipv6 และทำการ make border-router เมื่อเสร็จจะได้ดังภาพ
+    ```
+    cd contiki/examples/ipv6
+    sudo make TARGET=srf06-cc26xx BOARD=launchpad/cc2650 border-router
+
+    ```
+    ![br1](https://user-images.githubusercontent.com/27261111/45938769-3ca3df80-bff7-11e8-9c2c-af284da28c76.png)
+* ทำการ Flash program border-router.hex โดยใช้โปรแกรม Flash programmer 2 หรือ Uniflash และทำการเชื่อมต่อกับ ubuntu ต่อไป
+* จากนั้นทำการใช้ Tunslip6 โดยเข้าไปที่ contiki/tools และทำการ make tunslip6
+    ```
+    cd contki/tools
+    sudo make tunslip6
+    ```
+* เมื่อ tunslip6 พร้อมแล้ว เราจะทำการเปิดการใช้งาน ด้วยคำสั่ง 
+    ```
+    sudo ./tunslip6 aaaa::1/64 -s /dev/ttyACM0
+    ```
+    เสร็จแล้วให้ทำการกด Reset ที่ บอร์ด  2 ครั้ง จะได้ ip ของ boarder-router ตามลูกศร เป็นอันเสร็จสิ้นการเชื่อมต่อ Network ส่วนของ IEEE 802.15.4 เข้าเก็บ Ubuntu
+    ![br2](https://user-images.githubusercontent.com/27261111/45938805-9efce000-bff7-11e8-9e94-f8f919b6e1ad.png)
+* เมื่อได้ ip boarder-router เสร็จแล้ว จะมาทำการ make โนด client เพื่อทำการเชื่อมต่อกับ boarder-router โดยเข้าไปที่ contiki/examples/ipv6/rpl-udp
+  ```
+  cd contiki/examples/ipv6/rpl-udp
+  sudo make TARGET=srf06-cc26xx BOARD=launchpad/cc2650 udp-client
+  ```
+  เมื่อ make เสร็จทำการ Flash program และทำการเปิด web browser แล้วใส่ ip board-router จะเห็นได้ว่า board-router สามารถมองเห็น client ตัวไหนได้บ้าง
+  ![br3](https://user-images.githubusercontent.com/27261111/45938858-074bc180-bff8-11e8-9067-4c489aa2dadc.png)
+  
+  เสร็จแล้วจะทำการ ping ไปยังโนด client แสดงว่า client สามารถเชื่อต่อได้ ดังนั้น border-router และ tunslip6 จะทำหน้าที่เป็นตัวสร้าง network ระหว่างวง IEEE 802.15.4 กับ ubnutu เราโดยการสร้าง interface อีกตัวนึงมาเพื่อเชื่อมต่อกันและกัน
+  ![br4](https://user-images.githubusercontent.com/27261111/45938864-192d6480-bff8-11e8-8f8d-becfb6dd23c3.png)
