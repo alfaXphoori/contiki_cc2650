@@ -3,7 +3,7 @@ Learning contiki-os with Ubuntu 18.04 on cc2650
 
 * [Install Toolchain](#install-toolchain)
 * [Flash_program by Uniflash](#flash-program-by-uniflash)
-* [Flash program by Ubuntu](#flash-program-by-ubuntu)
+* [Flash program by Ubuntu](#flash-program-by-ubuntu) Not recommend
 * [Border router](#border-router)
 
 ## Install Toolchain
