@@ -2,6 +2,7 @@
 Learning contiki-os with Ubuntu 18.04 on cc2650 
 
 * [Install Toolchain](#install-toolchain)
+* [Flash_program by Uniflash](#flash-program-by-uniflash)
 * [Flash program by Ubuntu](#flash-program-by-ubuntu)
 * [Border router](#border-router)
 
@@ -34,6 +35,15 @@ Learning contiki-os with Ubuntu 18.04 on cc2650
   git submodule update –init
   ```
   ![tools-3](https://user-images.githubusercontent.com/27261111/45929364-c5306a80-bf7a-11e8-8cf2-4b2fc9ed644c.png)
+## Flash program by Uniflash
+* Download [Uniflash](http://processors.wiki.ti.com/index.php/Category:CCS_UniFlash) and Install
+* เปิดโปรแกรม และต่อ cc2650 เข้าไปแล้วโปรแกรมจะได้ device เองได้ดังนี้
+<img width="1392" alt="un_1" src="https://user-images.githubusercontent.com/27261111/45992405-cfa24f80-c0b3-11e8-8b36-2bf4037fc331.png">
+* ทำการเลือกไฟล์ที่จะใช้ในการ flash โดยกดที่ปุ่ม browse ต้องเป็น file .hex เท่านั้นไม่งั้นจะทำให้ board lock ได้
+<img width="1392" alt="un_2" src="https://user-images.githubusercontent.com/27261111/45992453-227c0700-c0b4-11e8-852b-7c25466da1a4.png">
+* ทำการ flash โดยกดปุ่ม load image และ verify image เป็นอันเสร็จ
+<img width="1392" alt="un_3" src="https://user-images.githubusercontent.com/27261111/45992541-9c13f500-c0b4-11e8-930c-4a05ab729b52.png">
+<img width="1392" alt="un_5" src="https://user-images.githubusercontent.com/27261111/45992543-9dddb880-c0b4-11e8-8b64-db78e6bcc4d6.png">
 
 ## Flash program by Ubuntu
 * ทำการ Config file ccfg.c ใน Contiki โดยใช้ editor ต่างๆ โดยผู้เขียนจะใช้ vim ในการ edit
