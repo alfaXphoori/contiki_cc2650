@@ -13,7 +13,6 @@ Learning contiki-os with Ubuntu 18.04 on cc2650
   sudo apt-get upgade -y
   sudo apt-get install git -y
   sudo apt-get install build-essential -y
-
   ```
 * Install gcc-arm embedded and other Toolchain ด้วยคำสั่ง
   ```
